@@ -1,5 +1,8 @@
 <template>
   <div class="home">
+    <div class="navbar-brand">
+          <span class="brand-logo">MyProfile</span>
+    </div>
     <AboutPage />
     <ProjectPage />
     <ContactPage />

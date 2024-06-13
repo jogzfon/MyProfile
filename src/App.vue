@@ -2,9 +2,9 @@
   <div id="app">
     <nav class="navbar">
       <div class="navbar-container">
-        <router-link to="/" class="navbar-brand">
+        <div class="navbar-brand">
           <span class="brand-logo">MyProfile</span>
-        </router-link>
+        </div>
         <div class="navbar-links">
           <router-link to="/" class="navbar-link">Home</router-link>
           <router-link to="/about" class="navbar-link">About Me</router-link>
