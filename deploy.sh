@@ -12,6 +12,6 @@ git add -A
 
 git commit -m 'New Deployment'
 
-git push -f git@github.com:jogzfon/MyProfile.git
+git push -f git@github.com:jogzfon/MyProfile.git master:gh-pages
 
 cd -
