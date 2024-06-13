@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <h2 class="page-title">MY PROJECTS</h2>
     <ProjectList :projects="projects"/>
   </div>
 </template>

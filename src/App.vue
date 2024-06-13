@@ -6,10 +6,10 @@
           <span class="brand-logo">MyProfile</span>
         </div>
         <div class="navbar-links">
-          <router-link to="/" class="navbar-link">Home</router-link>
-          <router-link to="/about" class="navbar-link">About Me</router-link>
-          <router-link to="/projects" class="navbar-link">Projects</router-link>
-          <router-link to="/contact" class="navbar-link">Contacts</router-link>
+          <router-link to="/MyProfile/" class="navbar-link">Home</router-link>
+          <router-link to="/MyProfile/about" class="navbar-link">About Me</router-link>
+          <router-link to="/MyProfile/projects" class="navbar-link">Projects</router-link>
+          <router-link to="/MyProfile/contact" class="navbar-link">Contacts</router-link>
         </div>
       </div>
     </nav>
