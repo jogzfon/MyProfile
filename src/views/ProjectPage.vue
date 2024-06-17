@@ -82,7 +82,7 @@ export default defineComponent({
       subtitle: 'Software Engineering 1 : python - scikit-learn', 
       description: 'Developed an Obesity Classification tool and deployed it on Streamlit. This AI tool considers age, gender, height, weight, and BMI to classify obesity levels. It uses a Random Forest model for training and classification.', 
       link: 'https://github.com/jogzfon/DelaTorreAbellaPiodos_Streamlit',
-      tools: 'Streamlit', 
+      tools: 'Streamlit, Visual Studio Code', 
       category: 'misc',
       id: '9'},
       // {title: 'Kartenon', 
