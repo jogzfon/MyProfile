@@ -40,7 +40,7 @@ export default defineComponent({
       subtitle: 'Information Management 2  : Python - MySQL - Django - HTML - CSS', 
       description: 'Developed an event management system for the campus. Teachers can organize events that students can join and evaluate. My role focused on enabling student registration for events and creating evaluation forms for them, including doing the database table relationships according to the transaction.',
       link: 'https://github.com/jogzfon/CITGO', 
-      tools: 'Apache Netbeans IDE 17', 
+      tools: 'Pycharm', 
       category: 'web',
       id: '3'},
       {title: 'PICast', 
