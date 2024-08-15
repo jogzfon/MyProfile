@@ -5,11 +5,14 @@
         <img src="@/assets/profile.png" alt="Profile Picture" class="profile-picture">
         <div class="profile-info">
           <h1 class="full-name">Sheer Jay A. Piodos</h1>
-          <p class="headline">Software Developer | Game Developer</p>
+          <p class="headline">Software Developer</p>
           <div class="social-links">
-            <a href="https://www.linkedin.com/in/sheer-jay-piodos-87711329a/" class="social-link"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/jogzfon" class="social-link"><i class="fab fa-github"></i></a>
-            <a href="https://jogzfon.itch.io" class="social-link"><i class="fab fa-itch-io"></i></a>
+            <a href="https://www.linkedin.com/in/sheer-jay-piodos-87711329a/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/jogzfon" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
           </div>
         </div>
       </div>
@@ -17,23 +20,43 @@
 
     <main class="profile-body">
       <section class="profile-section">
-        <h2 class="section-header">⚒️ Languages-Frameworks-Tools ⚒️</h2>
-        <ul class="skill-list">
-          <div align="center">
-              <img src="https://skillicons.dev/icons?i=java,cs,cpp,c,py,js,ts,html,css,regex" /><br>
-              <img src="https://skillicons.dev/icons?i=dotnet,unity,godot,mui,react,vue,ps,pycharm,vscode,visualstudio,arduino,blender,maven" /><br>
-              <img src="https://skillicons.dev/icons?i=github,git,figma,tensorflow,firebase,mysql,npm,notion,postman" />
-              <br>
-          </div>
-        </ul>
+        <h2 class="section-header">⚒️ Languages, Frameworks & Tools ⚒️</h2>
+        <div class="skill-list">
+          <img src="https://skillicons.dev/icons?i=java,cs,cpp,c,py,js,ts,html,css,regex" alt="Languages">
+          <img src="https://skillicons.dev/icons?i=dotnet,unity,godot,mui,react,vue,ps,pycharm,vscode,visualstudio,arduino,blender,maven" alt="Frameworks & Tools">
+          <img src="https://skillicons.dev/icons?i=github,git,figma,tensorflow,firebase,mysql,npm,notion,postman" alt="Other Tools">
+        </div>
       </section>
 
       <section class="profile-section">
         <h2 class="section-header">Experience</h2>
         <div class="experience-item">
-          <h3 class="item-header">Game Developer</h3>
-          <p class="item-description">I've had the opportunity to develop games across various platforms, including mobile and Windows. Through these experiences, I've continuously learned and grown, gaining valuable insights along the way. Game development has become a passion of mine that I enjoy pursuing in my spare time. I've had the privilege of publishing some of my work on platforms like itch.io and have participated in game jams, where I've learned from and collaborated with talented developers.</p>
-          <p class="item-date">August 2019 - Present</p>
+          <div class="experience-header">
+            <img src="@/assets/sparksoft-logo.png" alt="SparkSoft Solutions Logo" class="company-logo">
+            <div class="experience-info">
+              <h3 class="item-header">SparkSoft Solutions, Inc.</h3>
+              <p class="item-subheader">AI Research Intern</p>
+            </div>
+          </div>
+          <p class="item-date">July 2024 - August 2024</p>
+          <p class="experience-description">
+            During our internship, our team had the opportunity to work on several innovative projects that allowed us to apply our skills in software development and AI integration. I spearheaded the development of customized plugins for TaskWeaver, ensuring they were precisely tailored to meet the company's needs. We also built a Generative AI-aided Library Management system, which significantly streamlined the process of cataloging and managing resources. I led the team in creating an AI-powered Research Paper Summarizer, which enabled quicker and more efficient review of academic papers. Additionally, we designed and implemented AI-assisted Database Management tools, improving data handling and overall system performance. This experience allowed me to lead a talented group, deepening our understanding of AI applications in real-world scenarios while fostering a collaborative and innovative environment.
+          </p>
+          <div class="key-projects">
+            <h4 class="projects-header">🚀 Internship Projects</h4>
+            <div class="project-grid">
+              <div v-for="(project, index) in projects" :key="index" class="project-card">
+                <div class="project-icon">
+                  <i :class="project.icon"></i>
+                </div>
+                <h5 class="project-title">{{ project.title }}</h5>
+                <p class="project-description">{{ project.description }}</p>
+                <a :href="project.link" class="project-link" target="_blank" rel="noopener noreferrer">
+                  <!-- Learn More <i class="fas fa-arrow-right"></i> -->
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -51,7 +74,31 @@
 
 <script lang="ts">
 export default {
-  name: 'AboutPage'
+  name: 'AboutPage',
+  data() {
+    return {
+      projects: [
+        {
+          icon: 'fas fa-book',
+          title: 'Generative AI-aided Library Management',
+          description: 'An innovative system leveraging AI to streamline library operations and enhance user experience.',
+          link: '#'
+        },
+        {
+          icon: 'fas fa-file-alt',
+          title: 'Research Paper Summarizer',
+          description: 'AI-powered tool that creates concise summaries of complex research papers, saving time for researchers.',
+          link: '#'
+        },
+        {
+          icon: 'fas fa-database',
+          title: 'AI-assisted Database Management',
+          description: 'Intelligent system for optimizing database performance and automating routine management tasks.',
+          link: '#'
+        }
+      ]
+    };
+  }
 };
 </script>
 
@@ -67,7 +114,7 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #212529;
+  background: linear-gradient(135deg, #1a1e21 0%, #2c3e50 100%);
   padding: 40px;
 }
 
@@ -92,6 +139,11 @@ export default {
   object-fit: cover;
   margin-right: 40px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.profile-picture:hover {
+  transform: scale(1.05);
 }
 
 .profile-info {
@@ -101,12 +153,14 @@ export default {
 .full-name {
   font-size: 2.5rem;
   margin-bottom: 8px;
+  color: #00aaff;
 }
 
 .headline {
   font-style: italic;
   font-size: 1.2rem;
   margin-bottom: 16px;
+  color: #adb5bd;
 }
 
 .social-links {
@@ -115,14 +169,15 @@ export default {
 }
 
 .social-link {
-  color: #007bff;
+  color: #00aaff;
   font-size: 1.2rem;
   margin: 0 8px;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .social-link:hover {
   color: #0056b3;
+  transform: translateY(-3px);
 }
 
 .profile-body {
@@ -134,7 +189,7 @@ export default {
   font-weight: 700;
   margin-bottom: 24px;
   position: relative;
-  color: #007bff;
+  color: #00aaff;
   font-size: 1.8rem;
 }
 
@@ -146,7 +201,7 @@ export default {
   transform: translateX(-50%);
   width: 80px;
   height: 3px;
-  background-color: #007bff;
+  background-color: #00aaff;
 }
 
 .profile-section {
@@ -154,23 +209,19 @@ export default {
 }
 
 .skill-list {
-  list-style-type: none;
-  padding-left: 0;
-  margin-bottom: 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  gap: 16px;
+  padding: 0;
 }
 
-.skill-list li {
-  display: flex;
-  align-items: center;
-  margin: 8px 16px;
-  font-size: 1.1rem;
+.skill-list img {
+  transition: transform 0.3s ease;
 }
 
-.icon {
-  margin-right: 8px;
+.skill-list img:hover {
+  transform: translateY(-5px);
 }
 
 .experience-item,
@@ -183,11 +234,29 @@ export default {
   margin-right: auto;
 }
 
+.experience-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.company-logo {
+  width: 40px;
+  height: 40px;
+  margin-right: 16px;
+}
+
 .item-header {
   font-size: 1.4rem;
   font-weight: 500;
+  margin-bottom: 4px;
+  color: #00aaff;
+}
+
+.item-subheader {
+  font-size: 1.1rem;
+  color: #adb5bd;
   margin-bottom: 8px;
-  color: #007bff;
 }
 
 .item-description {
@@ -197,60 +266,96 @@ export default {
 
 .item-date {
   font-style: italic;
-  margin-bottom:0;
+  margin-bottom: 16px;
+  color: #adb5bd;
 }
-@media (max-width: 768px) {
-.profile-header {
-flex-direction: column;
-text-align: center;
+.experience-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #e0e0e0;
+  margin-bottom: 20px;
+  text-align: justify;
 }
-.profile-picture {
-margin-right: 0;
-margin-bottom: 20px;
+
+.key-projects {
+  background-color: #2a2f35;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
 }
-.social-links {
-margin-top: 16px;
+
+.projects-header {
+  font-size: 1.8rem;
+  color: #00aaff;
+  margin-bottom: 24px;
+  text-align: center;
 }
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
 }
-.skill-categories {
+
+.project-card {
+  background-color: #3a3f45;
+  border-radius: 8px;
+  padding: 20px;
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.skill-category {
-  margin: 0 20px;
-  max-width: 300px;
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
-.category-header {
+.project-icon {
+  font-size: 2.5rem;
+  color: #00aaff;
+  margin-bottom: 16px;
+}
+
+.project-title {
   font-size: 1.2rem;
-  font-weight: 500;
-  margin-bottom: 16px;
-  color: #007bff;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 12px;
 }
 
-.skill-graph {
-  margin-bottom: 16px;
-}
-
-.skill-bar {
-  width: 100%;
-  height: 20px;
-  background-color: #e9ecef;
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.skill-progress {
-  height: 100%;
-  background-color: #007bff;
-  transition: width 0.5s ease;
-}
-
-label {
+.project-description {
   font-size: 0.9rem;
-  margin-top: 4px;
-  display: block;
+  color: #adb5bd;
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+.project-link {
+  color: #00aaff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+
+.project-link:hover {
+  color: #0077cc;
+}
+
+.project-link i {
+  margin-left: 6px;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 768px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
 }
 </style>

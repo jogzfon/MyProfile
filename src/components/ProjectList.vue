@@ -17,13 +17,6 @@
       </button>
       <button
         class="category-button"
-        :class="{ active: currentCategory === 'game' }"
-        @click="filterProjects('game')"
-      >
-        Game Development
-      </button>
-      <button
-        class="category-button"
         :class="{ active: currentCategory === 'app' }"
         @click="filterProjects('app')"
       >
@@ -44,9 +37,17 @@
             <h2 class="project-title">{{ project.title }}</h2>
             <h4 class="project-subtitle">{{ project.subtitle }}</h4>
             <p class="project-description">{{ project.description }}</p>
-            <a :href="project.link" class="project-link" target="_blank">
-              <i class="fas fa-globe"></i> {{ project.link }}
-            </a>
+            <div v-if="project.link">
+              <a
+                v-for="(link, index) in project.link.split(',')"
+                :key="index"
+                :href="link.trim()"
+                class="project-link"
+                target="_blank"
+              >
+                <i class="fas fa-globe"></i> {{ link.trim() }}
+              </a>
+            </div>
             <p class="project-tools">{{ project.tools }}</p>
           </div>
         </li>
